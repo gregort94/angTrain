@@ -1,0 +1,8 @@
+<ul class="pagination" [class.hidden]="pagesAmount === 1">
+  <li [class.disabled]="activePageNum === 1" (click)="decreasePageNum()" ><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+  <li *ngFor="let num of pagesNums"
+      [class.active]="(num +1) === activePageNum"
+      (click)="setActivePageNum(num+1)"
+  ><a href="#!">{{num + 1}}</a></li>
+  <li [class.disabled]="activePageNum === pagesAmount" (click)="increasePageNum()"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+</ul>

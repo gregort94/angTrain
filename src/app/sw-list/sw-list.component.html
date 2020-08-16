@@ -1,0 +1,15 @@
+<ul class="collection with-header">
+  <li class="collection-header"><h4>{{title}}</h4></li>
+  <li *ngFor="let item of items" (click)="itemClickHandler(item)" class="collection-item">
+    <span class="title">{{item[firstField]}}</span>
+    <p><strong class="fieldName">{{secondField}}: </strong>{{item[secondField]}}<br>
+      <strong class="fieldName">{{thirdField}}: </strong>{{item[thirdField]}}
+    </p>
+  </li>
+</ul>
+<app-pagination
+  (changePage)="setNewPageData($event)"
+  [itemsOnPage]="10"
+  [itemsAmount]="itemsAmount"
+></app-pagination>
+<app-preloader *ngIf="loading"></app-preloader>
