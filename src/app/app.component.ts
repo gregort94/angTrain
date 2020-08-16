@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DataService} from "./data.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angTrain';
+  listLoading = false;
+  currentFilm: object;
+  constructor(public dataService: DataService) {
+  }
+  async ngOnInit() {
+    this.listLoading = true;
+    await this.dataService.getSWData();
+    this.listLoading = false;
+  }
 }
